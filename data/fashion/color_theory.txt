@@ -1,0 +1,5 @@
+Color theory is generally split into a few sections: 
+- the seasons, including winter, spring, summer, and fall
+
+each season has sections within it. 
+

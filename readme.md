@@ -7,6 +7,7 @@ Cosmo is a personal AI assistant project focused on:
 - Cosmetics
 - Fashion
 - Pop Culture
+- Sports
 
 ## Current Features
 - Local LLM using Ollama
