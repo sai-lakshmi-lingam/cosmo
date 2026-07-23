@@ -1,5 +1,7 @@
 import requests
 
+print("Starting program...")
+
 prompt = input("Ask Cosmo something: ")
 
 response = requests.post(
