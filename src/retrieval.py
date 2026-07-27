@@ -1,23 +1,14 @@
 import chromadb
+from config import DATABASE, TOP_RESULTS
 
-client = chromadb.PersistentClient(path="./chroma_db")
+client = chromadb.PersistentClient(path=DATABASE)
 
-collection = client.get_collection(
-    name="cosmo"
-)
+collection = client.get_collection(name="cosmo")
 
-results = collection.query(
-    query_texts=[
-        "How do I get dewy skin?"
-    ],
-    n_results=2
-)
+def retrieve(query):
+    results = collection.query(
+        query_texts=[query],
+        n_results=TOP_RESULTS
+    )
 
-print("Most relevant documents:\n")
-
-for doc, distance in zip(
-    results["documents"][0],
-    results["distances"][0]
-):
-    print(f"- {doc}")
-    print(f"  Distance: {distance:.3f}\n")
+    return results["documents"][0]
