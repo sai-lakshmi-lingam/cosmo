@@ -6,49 +6,64 @@ from prompts import SYSTEM_PROMPT
 def start_chat():
     print("Starting Cosmo...\n")
 
+    history = []
+
     while True:
 
-        prompt = input("Ask Cosmo something ('exit' to quit): ")
+        try:
+            prompt = input("Ask Cosmo something ('exit' to quit): ")
 
-        if prompt.lower() == "exit":
-            print("Goodbye!")
-            break
+            if prompt.lower() == "exit":
+                print("Goodbye!")
+                break
+            history.append(f"User: {prompt}") #new line
 
-        documents = retrieve(prompt)
-        context = "\n\n".join(documents)
-        print("\nRetrieved Context:")
-        print(context)
-        print()
-        
-        full_prompt = f"""
-        {SYSTEM_PROMPT}
+            documents = retrieve(prompt)
+            context = "\n\n".join(documents)
+            print("\n========== Retrieved Context ==========")
+            print(f"Retrieved {len(documents)} document(s).")
+            print(context)
+            print("=======================================\n")
 
-        Use the following context to answer the question.
+            conversation = "\n".join(history[:-1]) #nothing if no previous replies
 
-        Context:
-        {context}
+            full_prompt = f"""
+            {SYSTEM_PROMPT}
 
-        Question:
-        {prompt}
+            Previous Conversation:
+            {conversation}
 
-        Answer:
-        """
+            Retrieved Context:
+            {context}
 
-        print("Sending prompt to Ollama...")
+            Current Question:
+            {prompt}
 
-        response = requests.post(
-            OLLAMA_URL,
-            json={
-                "model": MODEL,
-                "prompt": full_prompt,
-                "stream": False
-            }
-        )
-        print("Response received!")
-        print(response.status_code)
+            Answer:
+            """
 
-        answer = response.json()["response"]
+            print("Sending prompt to Ollama...")
 
-        print("\nCosmo:")
-        print(answer)
-        print()
+            response = requests.post(
+                OLLAMA_URL,
+                json={
+                    "model": MODEL,
+                    "prompt": full_prompt,
+                    "stream": False
+                },
+                timeout=300
+            )
+            print("Response received!")
+            print(response.status_code)
+
+            response.raise_for_status()
+
+            answer = response.json()["response"]
+            
+            history.append(f"Cosmo: {answer}") #new line
+
+            print("\nCosmo:")
+            print(answer)
+            print()
+        except Exception as e:
+            print(f"Error: {e}")
