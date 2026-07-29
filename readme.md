@@ -1,4 +1,4 @@
-# Cosmo
+Cosmo: 
 
 Cosmo is a personal AI assistant project focused on:
 
@@ -9,14 +9,24 @@ Cosmo is a personal AI assistant project focused on:
 - Pop Culture
 - Sports
 
-## Current Features
+Current Features
 - Local LLM using Ollama
 - Qwen3 model integration
 - Python command-line chat interface
+- Retrieval-Augmented Generation (RAG)
+- Streamlit for web application
+- Beauty knowledge base
+- Pop culture knowledge base
+- Fashion trends
+- Celebrity information
 
-## Future Goals
+Future Goals
 - Beauty knowledge base
 - Celebrity style recommendations
 - Product recommendations
-- Retrieval-Augmented Generation (RAG)
-- Streamlit web application
+
+Images: 
+Prompts outside of knowledge base: 
+![alt text](image.png)
+Prompts within knowledge base: 
+![alt text](image-1.png)
