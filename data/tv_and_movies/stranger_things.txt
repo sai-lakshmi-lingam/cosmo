@@ -1,9 +1,13 @@
-Stranger Things is a show that follows a group of children as they navigate the complexities of monsters that have 
-escaped the Dungeons and Dragons universe. 
-The main group includes: 
-- El: child with super powers
-- Will: taken by monsters
-- Mike: best companion to El
-- Lucas: realist
-- Dustin: brain and comic relief of the group
-- Max: adventurous 
+Title: Stranger Things
+
+Stranger Things is a science fiction horror television show created by the Duffer Brothers and released on Netflix.
+
+The show follows a group of children as they navigate supernatural events involving monsters, the Upside Down, and mysterious experiments.
+
+Main characters:
+- Eleven (El): A child with supernatural abilities.
+- Will Byers: A child connected to the Upside Down.
+- Mike Wheeler: One of Eleven's closest friends.
+- Lucas Sinclair: A logical and realistic member of the group.
+- Dustin Henderson: The intelligent and humorous member of the group.
+- Max Mayfield: An adventurous member of the group.

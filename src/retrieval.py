@@ -11,4 +11,10 @@ def retrieve(query):
         n_results=TOP_RESULTS
     )
 
+    print("IDS:")
+    print(results["ids"])
+    
+    print("\nDISTANCES:")
+    print(results["distances"])
+
     return results["documents"][0]
